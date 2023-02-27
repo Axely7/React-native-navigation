@@ -3,8 +3,16 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Page1Screen} from '../screens/Page1Screen';
 import {Page2Screen} from '../screens/Page2Screen';
 import {Page3Screen} from '../screens/Page3Screen';
+import {PersonaScreen} from '../screens/PersonaScreen';
 
-const Stack = createStackNavigator();
+export type RootStackParams = {
+  Page1Screen: undefined;
+  Page2Screen: undefined;
+  Page3Screen: undefined;
+  PersonaScreen: {id: number; name: string};
+};
+
+const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
   return (
@@ -33,6 +41,11 @@ export const StackNavigator = () => {
         name="Page3Screen"
         options={{title: 'Página 3'}}
         component={Page3Screen}
+      />
+      <Stack.Screen
+        name="PersonaScreen"
+        options={{title: 'Personaa'}}
+        component={PersonaScreen}
       />
     </Stack.Navigator>
   );
