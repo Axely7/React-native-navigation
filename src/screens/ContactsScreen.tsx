@@ -4,12 +4,15 @@ import {styles} from '../theme/appTheme';
 import {AuthContext} from '../context/AuthContext';
 
 export const ContactsScreen = () => {
-  const {signIn} = useContext(AuthContext);
+  const {
+    signIn,
+    authState: {isLoggedIn},
+  } = useContext(AuthContext);
 
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>ContactsScreen</Text>
-      <Button title="SignIn" onPress={signIn}></Button>
+      {!isLoggedIn ? <Button title="SignIn" onPress={signIn}></Button> : null}
     </View>
   );
 };

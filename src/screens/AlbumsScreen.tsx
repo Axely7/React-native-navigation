@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Text, View} from 'react-native';
+import {styles} from '../theme/appTheme';
 
 export const AlbumsScreen = () => {
   return (
-    <View>
-      <Text>AlbumsScreen</Text>
+    <View style={styles.globalMargin}>
+      <Text style={styles.title}>AlbumsScreen</Text>
     </View>
   );
 };
